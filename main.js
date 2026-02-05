@@ -1,4 +1,6 @@
 var saveDataObject = {
+    // Date of last data save
+    saveDate : 0,
     // Depth dug so far in feet, resets every requiredDepth feet and is converted to a well
     depth : 0,
     // Default depth required to create a well is 10 feet. This will increase with more wells dug
@@ -60,18 +62,47 @@ init();
 
 // Save all current data as a JSON object and download that as a file
 function saveData() {
-    const jsonString = JSON.stringify(saveDataObject);
-    localStorage.setItem('userData', jsonString);
-    console.log(jsonString);
+    if (confirm("Are you sure you want to save your current data?") == true) {
+        saveDataObject.saveDate = new Date();
+        const jsonString = JSON.stringify(saveDataObject);
+        localStorage.setItem('userData', jsonString);
+        console.log(jsonString);
+    }
 };
 
 // Load game data from a given JSON file
 function loadData() {
     const storedString = localStorage.getItem('userData');
-    saveDataObject = JSON.parse(storedString);
-    console.log(saveDataObject);
-    unlockWater();
-    unlockMoney();
+    const previousSaveDate = JSON.parse(storedString).saveDate;
+    if (previousSaveDate != 0) {
+        if (confirm("Are you sure you want to load stored data from " + previousSaveDate + "?") == true) {
+            saveDataObject = JSON.parse(storedString);
+            console.log(saveDataObject);
+            unlockWater();
+            unlockMoney();
+            document.getElementById('advertisePrice').innerHTML = saveDataObject.advertisePrice;
+            document.getElementById('currentNatGrowth').innerHTML = saveDataObject.currentPopulationGrowthCounter;
+            document.getElementById('increaseNaturalGrowthPrice').innerHTML = saveDataObject.increaseNaturalGrowthPrice;
+            document.getElementById('naturalGrowthAmount').innerHTML = saveDataObject.naturalGrowthAmount;
+            document.getElementById('digPower').innerHTML = saveDataObject.digPower;
+            document.getElementById('digPower2').innerHTML = saveDataObject.digPower;
+            document.getElementById('equipPrice').innerHTML = saveDataObject.equipPrice;
+            document.getElementById('population').innerHTML = saveDataObject.population;
+            document.getElementById('encouragePrice').innerHTML = saveDataObject.encouragePrice;
+            document.getElementById('diggers').innerHTML = saveDataObject.diggers;
+            document.getElementById('money').innerHTML = Math.round(saveDataObject.money * 100) / 100;
+            document.getElementById('depthSavings').innerHTML = Math.round(saveDataObject.depthSavings * 100);
+            document.getElementById('findNewDigSpotsPrice').innerHTML = Math.round((saveDataObject.findNewDigSpotsPrice * 10) / 10);
+            document.getElementById("depth").innerHTML = Math.round(saveDataObject.depth * 10) / 10;
+            document.getElementById("requiredDepth").innerHTML = saveDataObject.requiredDepth;
+            document.getElementById("wells").innerHTML = saveDataObject.wells;
+            document.getElementById("water").innerHTML = Math.round(saveDataObject.water * 10) / 10;
+            document.getElementById("maxWater").innerHTML = saveDataObject.maxWater;
+            document.getElementById("waterPrice").innerHTML = Math.round(saveDataObject.waterPrice * 10) / 10;
+            document.getElementById("demand").innerHTML = Math.round(saveDataObject.demand * 100) / 100;
+            document.getElementById("moneyPerSecond").innerHTML = Math.round(saveDataObject.demand * saveDataObject.waterPrice * 100) / 100;
+        }
+    }
 };
 
 function digClick(number) {
@@ -88,8 +119,10 @@ function digClick(number) {
 };
 
 function unlockWater() {
-    document.getElementById("pWells").style.display = 'block';
-    document.getElementById("pWater").style.display = 'block';
+    if (saveDataObject.wells > 0) {
+        document.getElementById("pWells").style.display = 'block';
+        document.getElementById("pWater").style.display = 'block';
+    }
 };
 
 function unlockMoney() {
