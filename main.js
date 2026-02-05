@@ -210,7 +210,7 @@ function findNewDigSpots(percentChange) {
     if (saveDataObject.money >= saveDataObject.findNewDigSpotsPrice) {
         saveDataObject.money -= saveDataObject.findNewDigSpotsPrice;
         saveDataObject.findNewDigSpotsPrice = 2 * saveDataObject.findNewDigSpotsPrice;
-        saveDataObject.depthSavings -= saveDataObject.percentChange;
+        saveDataObject.depthSavings -= percentChange;
         document.getElementById('money').innerHTML = Math.round(saveDataObject.money * 100) / 100;
         document.getElementById('depthSavings').innerHTML = Math.round(saveDataObject.depthSavings * 100);
         document.getElementById('requiredDepth').innerHTML = Math.round(((10 + saveDataObject.wells^2) * saveDataObject.depthSavings * 10) / 10);
