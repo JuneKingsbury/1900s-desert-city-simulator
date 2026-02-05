@@ -1,0 +1,134 @@
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="interface.css" />
+</head>
+<body>
+    <h1>1900s desert city simulator</h1>
+    <p id="pTextScroll">=== News headline text scroll here ===</p>
+    <table>
+        <tr>
+            <th><h2>Well Digging</h2></th>
+            <th><h2>Water Marketing</h2></th>
+            <th><h2>City Planning</h2></th>
+        </tr>
+        <tr>
+            <!-- well digging column -->
+            <td>
+                <p>
+                    Dig for groundwater<br>
+                    <button onclick="playerDigClick()">Dig down <span id="digPower">1</span> ft</button>
+                </p>
+                <p>
+                    Depth dug: <span id="depth">0</span> / <span id=requiredDepth>10</span> feet
+                </p>
+                <div id="pWells">
+                <p>
+                    Wells dug: <span id="wells">0</span>
+                </p>
+                <p>
+                    Gallons produced / second: <span id="galProducedPerSecond">0</span>
+                </p>
+                <hr>
+                <p>
+                    Water stored: <span id="water">0</span> / <span id="maxWater">10</span> gallons
+                </p>
+                <p>
+                    Buy more water storage<br>
+                    <button onclick="buyWaterStorage(10)">Buy 10 gallons of storage for $10</button>
+                </p>
+                </div>
+                <div id="pEquipment">
+                <hr>
+                <p>
+                    Buy better equipment (double your depth / click)<br>
+                    <button onclick="buyEquipment()">Buy a shovel for $<span id="equipPrice">5</span></button>
+                </p>
+                <p>
+                    Currently digging <span id="digPower2">1</span> ft / click
+                </p>
+                </div>
+                <div id="pHire">
+                <hr>
+                <p>
+                    Hire someone to dig for you (at 0.5 ft / second)<br>
+                    <button onclick="hireDigger()">Hire for $<span id=diggerCost>10</span></button>
+                </p>
+                <p>
+                    Diggers employed: <span id="diggers">0</span>
+                </p>
+                <p>
+                    Workers are currently digging <span id="workerDigsPerSecond">0</span> ft / second
+                </p>
+                </div>
+            </td>
+            <!-- water selling column -->
+            <td>
+                <p>
+                    Money: $<span id="money">0</span>
+                </p>
+                <p>
+                    Population: <span id="population">1</span>
+                </p>
+                <p>
+                    Population naturally grows by <span id="naturalGrowthAmount">1</span> / minute (<span id="currentNatGrowth">0</span> / 60s)<br>
+                    <button onclick="toggleNaturalGrowth()">Turn <span id="natGrowthOnOrOff">OFF</span> natural growth</button>
+                </p>
+                <div id="pWater">
+                <hr>
+                <p>
+                    Water demand: <span id="demand">0.15</span> gallons / second
+                </p>
+                <p>
+                    Price / gallon: $<span id="waterPrice">1</span>
+                </p>
+                <p>
+                    <button onclick="increaseWaterPrice(0.1)">[+] increase price by $0.10</button><br>
+                    <button onclick="decreaseWaterPrice(0.1)">[-] decrease price by $0.10</button>
+                </p>
+                <p>
+                    % of gallons sold / second: <span id="galSellPercentage"></span>%
+                </p>
+                <p>
+                    Money earned / second: $<span id="moneyPerSecond"></span><br>
+                    <i>Assuming you have enough water to sell</i>
+                </p>
+                </div>
+            </td>
+            <!-- city planning column -->
+            <td>
+                <div id="pFliers">
+                <hr>
+                <p>
+                    Send fliers to promote the city, increasing the natural population growth by 1 / minute<br>
+                    <button onclick="increaseNaturalGrowthAmount(1)">Send fliers for $<span id="increaseNaturalGrowthPrice">5</button>
+                </p>
+                </div>
+                <div id="pAdvert">
+                <hr>
+                <p>
+                    Advertise your well business, increasing water demand further<br>
+                    <button onclick="advertise(1)">Advertise for $<span id="advertisePrice">10</button>
+                </p>
+                </div>
+                <div id="pEncourage">
+                <p>
+                    Encourage population growth, boosting the current population by a large amount<br>
+                    <button onclick="encourageGrowth(1)">Encourage for $<span id="encouragePrice">15</button>
+                </p>
+                </div>
+                <div id="pLandRights">
+                <hr>
+                <p>
+                    Buy the rights to undug land, decreasing well depth requirements by 20% (currently <span id="depthSavings">100</span>% depth requirements)<br>
+                    <button onclick="findNewDigSpots(0.2)">Buy land rights for $<span id="findNewDigSpotsPrice">30</button>
+                </p>
+                </div>
+                    </td>
+                    </tr>
+                </table>
+                <button onclick="saveData()">Save data to browser localStorage</button>
+                <button onclick="loadData()">Load data from browser localStorage</button>
+                <script type="text/javascript" src="main.js"></script>
+            </body>
+            </html>
+            

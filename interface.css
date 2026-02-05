@@ -1,0 +1,9 @@
+table {
+  border-collapse: collapse; /* Ensures single borders between cells */
+  width: 100%;
+}
+
+th, td {
+  width: 33.33%;
+  border: 1px solid black;
+}
