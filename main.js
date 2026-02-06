@@ -273,6 +273,15 @@ function increaseNaturalGrowthAmount(number) {
     document.getElementById('naturalGrowthAmount').innerHTML = saveDataObject.naturalGrowthAmount;
 };
 
+function addHeadline(headline) {
+    document.getElementById('ticker-wrapper').insertAdjacentHTML('beforeend',
+            '<div class="ticker__item">' + 
+            headline  +
+            "</div>"
+    );
+}
+//addHeadline("aaaaaaaaahhhhhhhhhhh"); example call
+
 // Main loop
 window.setInterval(function() {
     // By default diggers dig 0.5 feet per second
