@@ -1,12 +1,54 @@
+* {
+    font-family: "Pixelify Sans", system-ui;
+}
+
+body {
+ background-image: url("background.jpg");
+ background-color: #cccccc;
+ background-size: cover;
+}
+
 table {
   border-collapse: collapse; /* Ensures single borders between cells */
   width: 100%;
   margin-top: 20px;
+  background-color: rgba(255, 255, 255, 0.6);
 }
 
 th, td {
   width: 33.33%;
   border: 1px solid black;
+}
+
+
+/* button */
+button {
+    font-family: "Pixelify Sans", system-ui;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    background-color: cornsilk;
+    border: 2px solid #2f2e2a;
+    padding: 8px 20px;
+    box-shadow: 4px 4px #2f2e2a;
+    transition-property: transform, box-shadow, outline-offset;
+    transition: 100ms ease-in;
+    margin-top: 10px;
+
+    &:hover {
+        cursor: pointer;
+        background-color: lightgrey;
+    }
+
+    &:focus-visible {
+        outline-offset: 12px;
+        outline: 2px dotted #2f2e2a;
+    }
+
+    &:active {
+        box-shadow: 2px 2px #2f2e2a;
+        transform: scale(0.99);
+    }
 }
 
 /* news ticker */
@@ -43,9 +85,13 @@ th, td {
   width: 100%;
   overflow: hidden;
   height: 4rem;
-  background-color: black; 
+  background: 
+   linear-gradient(rgba(255,0,0,1) 0%, rgba(255,154,0,1) 10%, rgba(208,222,33,1) 20%, rgba(79,220,74,1) 30%, rgba(63,218,216,1) 40%, rgba(47,201,226,1) 50%, rgba(28,127,238,1) 60%, rgba(95,21,242,1) 70%, rgba(186,12,248,1) 80%, rgba(251,7,217,1) 90%, rgba(255,0,0,1) 100%) 
+   0 0/100% 200%;
+   animation: a 2s linear infinite;
   padding-left: 100%;
   box-sizing: content-box;
+  margin-left: -10px;
 
   .ticker {
     display: inline-block;
@@ -72,4 +118,8 @@ th, td {
 
     }
   }
+}
+
+@keyframes a {
+  to {background-position:0 -200%}
 }

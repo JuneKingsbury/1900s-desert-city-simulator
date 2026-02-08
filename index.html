@@ -1,5 +1,6 @@
 <html>
 <head>
+    <link href='https://fonts.googleapis.com/css?family=Pixelify Sans' rel='stylesheet'>
     <link rel="stylesheet" type="text/css" href="interface.css" />
 </head>
 <body>
@@ -14,16 +15,16 @@
     </div>
     <table>
         <tr>
-            <th><h2>Well Digging</h2></th>
-            <th><h2>Water Marketing</h2></th>
-            <th><h2>City Planning</h2></th>
+            <th id="well_header"><h2>Well Digging</h2></th>
+            <th id="water_header"><h2>Water Marketing</h2></th>
+            <th id="city_header"><h2>City Planning</h2></th>
         </tr>
         <tr>
             <!-- well digging column -->
             <td>
                 <p>
                     Dig for groundwater<br>
-                    <button onclick="playerDigClick()">Dig down <span id="digPower">1</span> ft</button>
+                    <button  class="button--netscape" onclick="playerDigClick()">Dig down <span id="digPower">1</span> ft</button>
                 </p>
                 <p>
                     Depth dug: <span id="depth">0</span> / <span id=requiredDepth>10</span> feet
@@ -41,7 +42,7 @@
                 </p>
                 <p>
                     Buy more water storage<br>
-                    <button onclick="buyWaterStorage(10)">Buy 10 gallons of storage for $10</button>
+                    <button class="button--netscape" onclick="buyWaterStorage(10)">Buy 10 gallons of storage for $10</button>
                 </p>
                 </div>
                 <div id="pEquipment">
