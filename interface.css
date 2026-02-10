@@ -20,6 +20,43 @@ th, td {
   border: 1px solid black;
 }
 
+/* Mobile */
+@media (max-width: 768px) {
+  table,
+  tbody,
+  tr,
+  td {
+    display: block;
+    width: 100%;
+  }
+
+  thead {
+    display: none; /* hide header row */
+  }
+
+  tr {
+    margin-bottom: 1rem;
+    border: 1px solid black;
+    padding: 0.5rem;
+  }
+
+  td {
+    border: none;
+    padding: 0.5rem 0;
+  }
+
+  /* This puts the header directly on top of its td */
+  td::before {
+    content: attr(data-label);
+    display: block;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    padding-bottom: 0.25rem;
+    border-bottom: 1px solid #ccc;
+  }
+}
+
+
 
 /* button */
 button {

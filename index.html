@@ -7,21 +7,24 @@
     <h1>1900s desert city simulator</h1>
     <div class="ticker-wrap">
         <div class="ticker" id="ticker-wrapper">
-            <div class="ticker__item">Tornado!</div>
-            <div class="ticker__item">Look out!!</div>
-            <div class="ticker__item">"Shovelrs are too expensive" - local guy</div>
-            <div class="ticker__item">I'm out of ideas ig</div>
+            <div class="ticker__item">Tornado warning, watch for dust clouds</div>
+            <div class="ticker__item">Look out!</div>
+            <div class="ticker__item">"Shovels are too expensive" - Pete</div>
+            <div class="ticker__item">I'm out of ideas</div>
         </div>
     </div>
     <table>
+        <thead>
         <tr>
             <th id="well_header"><h2>Well Digging</h2></th>
             <th id="water_header"><h2>Water Marketing</h2></th>
             <th id="city_header"><h2>City Planning</h2></th>
         </tr>
+        </thead>
+        <tbody>
         <tr>
             <!-- well digging column -->
-            <td>
+            <td data-label="Well Digging">
                 <p>
                     Dig for groundwater<br>
                     <button  class="button--netscape" onclick="playerDigClick()">Dig down <span id="digPower">1</span> ft</button>
@@ -70,7 +73,7 @@
                 </div>
             </td>
             <!-- water selling column -->
-            <td>
+            <td data-label="Water Marketing">
                 <p>
                     Money: $<span id="money">0</span>
                 </p>
@@ -103,7 +106,7 @@
                 </div>
             </td>
             <!-- city planning column -->
-            <td>
+            <td data-label="City Planning">
                 <div id="pFliers">
                 <hr>
                 <p>
@@ -133,6 +136,7 @@
                 </div>
                     </td>
                     </tr>
+                    </tbody>
                 </table>
                 <button onclick="saveData()">Save data to browser localStorage</button>
                 <button onclick="loadData()">Load data from browser localStorage</button>
