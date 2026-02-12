@@ -27,7 +27,11 @@ th, td {
   tr,
   td {
     display: block;
-    width: 100%;
+    width: 100% !important;
+  }
+
+  th {
+    width: 100% !important;
   }
 
   thead {
