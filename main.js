@@ -112,7 +112,7 @@ function digClick(number) {
         saveDataObject.wells += 1;
         unlockWater()
     }
-    saveDataObject.requiredDepth = (10 + saveDataObject.wells**2) * saveDataObject.depthSavings;
+    saveDataObject.requiredDepth = Math.round((10 + saveDataObject.wells**2) * saveDataObject.depthSavings * 10) / 10;
     document.getElementById("depth").innerHTML = Math.round(saveDataObject.depth * 10) / 10;
     document.getElementById("requiredDepth").innerHTML = saveDataObject.requiredDepth;
     document.getElementById("wells").innerHTML = saveDataObject.wells;
