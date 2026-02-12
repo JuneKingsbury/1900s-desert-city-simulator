@@ -22,6 +22,10 @@ th, td {
 
 /* Mobile */
 @media (max-width: 768px) {
+  * {
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+  }
   table,
   tbody,
   tr,
@@ -115,15 +119,16 @@ button {
   }
 
   100% {
-    -webkit-transform: translate3d(-100%, 0, 0);
-    transform: translate3d(-100%, 0, 0);
+    -webkit-transform: translate3d(-200%, 0, 0);
+    transform: translate3d(-200%, 0, 0);
   }
 }
 
 .ticker-wrap {
   position: relative;
   top: 10;
-  width: 100%;
+  width: 20px;
+  margin-left: -10px;
   overflow: hidden;
   height: 4rem;
   background: 
@@ -132,7 +137,6 @@ button {
    animation: a 2s linear infinite;
   padding-left: 100%;
   box-sizing: content-box;
-  margin-left: -10px;
 
   .ticker {
     display: inline-block;
@@ -156,7 +160,6 @@ button {
       padding: 0 2rem;
       font-size: 2rem;
       color: white;   
-
     }
   }
 }
