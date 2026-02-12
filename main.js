@@ -182,7 +182,7 @@ function sellWater() {
     var waterProducedPerSecond = saveDataObject.wells * 0.1;
     document.getElementById("galProducedPerSecond").innerHTML = Math.round(waterProducedPerSecond * 100) / 100;
     document.getElementById("galSellPercentage").innerHTML = Math.round((saveDataObject.demand / waterProducedPerSecond) * 100);
-    document.getElementById("moneyPerSecond").innerHTML = Math.round(saveDataObject.demand * saveDataObject.waterPrice * 100) / 100;
+    document.getElementById("moneyPerSecond").innerHTML = Math.round(galsToSell * saveDataObject.waterPrice * 100) / 100;
     unlockMoney();
 };
 
