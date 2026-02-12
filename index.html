@@ -152,29 +152,34 @@
         </table>
     </div>
     <div id="phase2">
+        <p>Tracker bar 1 (construction progress. Phase ends once this is completed a few times, once for each major aqueduct and dam project)</p>
+        <p>Tracker bar 1.5 (construction safety. Large chunk of construction progress will be removed if this is filled. Increases with low farmer appeal and decreased by hiring engineers)</p>
+        <p>Tracker bar 2 (local government appeal. Impacts ability to get grants for hiring workers)</p>
+        <p>Tracker bar 3 (farmer rebellion. Goes up as you construct more. Lower rebellion leads to cheaper land prices. If this bar beats construction safety we might see an attack on the construction progress and the deaths of workers)</p>
+        <p>Currencies for this phase include Money for hiring workers, Land for starting construction projects, and two types of Appeal tracked in the bars above.</p>
         <table>
         <thead>
         <tr>
-            <th id="well_header"><h2>Well Digging</h2></th>
-            <th id="water_header"><h2>Water Marketing</h2></th>
-            <th id="city_header"><h2>City Planning</h2></th>
+            <th id="workers"><h2>Workers</h2></th>
+            <th id="farm_country"><h2>Farm Country</h2></th>
+            <th id="local_gov"><h2>Local Government</h2></th>
         </tr>
         </thead>
         <tbody>
         <tr>
-            <td data-label="Well Digging">
+            <td data-label="workers">
                 <p>
-                    Dig for groundwater
+                    Hire workers and add them to different jobs. These jobs include Laborers, Lawyers, Engineers, and Enforcers. Laborers increase construction progress, Engineers increase safety, Lawyers increase state appeal, and Enforcers quell farmer rebellion
                 </p>
             </td>
-            <td data-label="Water Marketing">
+            <td data-label="farm_country">
                 <p>
-                    Dig for groundwater
+                    Win the trust of farmers and purchase their land for your infrastructure projects. As you take away their water they will begin to fight back.
                 </p>
             </td>
-            <td data-label="City Planning">
+            <td data-label="local_gov">
                 <p>
-                    Dig for groundwater
+                    Increase your appeal with the local government to earn funding for your infrastructure project. Introduce new construction projects here as well (costs Land).
                 </p>
             </td>
         </tr>
@@ -182,7 +187,7 @@
         </table>
     </div>
     <div id="phase3">
-        <p>Woohoo phase 3!</p>
+        <p>Woohoo phase 3! Now the farmers have no water and this part is just sad.</p>
     </div>
     <button onclick="saveData()">Save data to browser localStorage</button>
     <button onclick="loadData()">Load data from browser localStorage</button>
