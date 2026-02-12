@@ -44,7 +44,9 @@ var saveDataObject = {
     naturalGrowthAmount : 1,
     secondsForPopulationGrowth : 60,
     currentPopulationGrowthCounter : 0,
-    increaseNaturalGrowthPrice : 5
+    increaseNaturalGrowthPrice : 5,
+	// The current phase of the game so you load into the correct menu
+	gamePhase : 1
 };
 
 // Do all initialization tasks like hiding locked elements
@@ -289,20 +291,37 @@ function addHeadline(headline) {
 
 // Main loop
 window.setInterval(function() {
-    // By default diggers dig 0.5 feet per second
-	digClick(saveDataObject.diggers * 0.5);
-    // Determine how much water to sell based on demand
-    sellWater();
-    // Calculate and gain water based on your number of wells
-    gainWater();
-    // Determine if population should grow naturally
-    if (saveDataObject.allowNaturalPopulationGrowth) {
-        saveDataObject.currentPopulationGrowthCounter += 1;
-        if (saveDataObject.currentPopulationGrowthCounter >= saveDataObject.secondsForPopulationGrowth) {
-            saveDataObject.population += saveDataObject.naturalGrowthAmount;
-            saveDataObject.currentPopulationGrowthCounter = 0;
-            document.getElementById('population').innerHTML = saveDataObject.population;
-        }
-        document.getElementById('currentNatGrowth').innerHTML = saveDataObject.currentPopulationGrowthCounter;
-    }
+	// Phase 1 - Well Digging
+	if (saveDataObject.gamePhase == 1) {
+		// If population becomes high enough, transition to Phase 2.
+		// Well calculations are irrelevant past this point so we don't need to continue doing these in Phase 2.
+		if (saveDataObject.population > 10000) {
+			saveDataObject.gamePhase = 2;
+			alert("Your population has boomed. The wells begin to run dry under the abuse.");
+		}
+	    // By default diggers dig 0.5 feet per second
+		digClick(saveDataObject.diggers * 0.5);
+	    // Determine how much water to sell based on demand
+	    sellWater();
+	    // Calculate and gain water based on your number of wells
+	    gainWater();
+	    // Determine if population should grow naturally
+	    if (saveDataObject.allowNaturalPopulationGrowth) {
+	        saveDataObject.currentPopulationGrowthCounter += 1;
+	        if (saveDataObject.currentPopulationGrowthCounter >= saveDataObject.secondsForPopulationGrowth) {
+	            saveDataObject.population += saveDataObject.naturalGrowthAmount;
+	            saveDataObject.currentPopulationGrowthCounter = 0;
+	            document.getElementById('population').innerHTML = saveDataObject.population;
+	        }
+	        document.getElementById('currentNatGrowth').innerHTML = saveDataObject.currentPopulationGrowthCounter;
+	    }
+	}
+	// Phase 2 - Building Infrastructure
+	else if (saveDataObject.gamePhase == 2) {
+		
+	}
+	// Phase 3 - Overcome Obstacles
+	else if (saveDataObject.gamePhase == 3) {
+		
+	}
 }, 1000);
