@@ -94,24 +94,31 @@
                     Water demand: <span id="demand">0.15</span> gallons / second
                 </p>
                 <p>
-                    Price / gallon: $<span id="waterPrice">1</span>
-                </p>
-                <p>
-                    <button onclick="increaseWaterPrice(0.1)">[+] increase price by $0.10</button><button onclick="increaseWaterPrice(1)">[+] increase price by $1.00</button><br>
-                    <button onclick="decreaseWaterPrice(0.1)">[-] decrease price by $0.10</button><button onclick="decreaseWaterPrice(1)">[-] decrease price by $1.00</button>
-                </p>
-                <p>
                     % of gallons sold / second: <span id="galSellPercentage"></span>%
                 </p>
                 <p>
                     Money earned / second: $<span id="moneyPerSecond"></span><br>
+                </p>
+                <p>
+                    Price / gallon: $<span id="waterPrice">1</span>
+                </p>
+                <p>
+                    <hr>
+                    <h3>Increase Water Price</h3>
+                    <button onclick="increaseWaterPrice(0.1)">Increase by <b>$0.10</b></button>
+                    <button onclick="increaseWaterPrice(1)">Increase by <b>$1.00</b></button>
+                    <button onclick="increaseWaterPrice(10)">Increase by <b>$10.00</b></button>
+                    <hr>
+                    <h3>Decrease Water Price</h3>
+                    <button onclick="decreaseWaterPrice(0.1)">Decrease by <b>$0.10</b></button>
+                    <button onclick="decreaseWaterPrice(1)">Decrease by <b>$1.00</b></button>
+                    <button onclick="decreaseWaterPrice(10)">Decrease by <b>$10.00</b></button>
                 </p>
                 </div>
             </td>
             <!-- city planning column -->
             <td data-label="City Planning">
                 <div id="pFliers">
-                <hr>
                 <p>
                     Send fliers to promote the city, increasing the natural population growth by 1 / minute<br>
                     <button onclick="increaseNaturalGrowthAmount(1)">Send fliers for $<span id="increaseNaturalGrowthPrice">5</button>
