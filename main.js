@@ -166,10 +166,15 @@ function decreaseWaterPrice(amount) {
 
 function sellWater() {
     // Calculate current demand based on set price
-    saveDataObject.demand = saveDataObject.demandBoost * (0.15 * (saveDataObject.population / saveDataObject.waterPrice));
-    if (saveDataObject.demand > 0 & saveDataObject.water >= saveDataObject.demand) {
-        saveDataObject.water -= saveDataObject.demand;
-        saveDataObject.money += saveDataObject.demand * saveDataObject.waterPrice;
+    saveDataObject.demand = (2 * saveDataObject.demandBoost * (saveDataObject.population / 2)) / saveDataObject.waterPrice //saveDataObject.demandBoost * (0.15 * (saveDataObject.population / saveDataObject.waterPrice));
+    var galsToSell = 0.2 * saveDataObject.demand**1.15;
+	if (galsToSell > 0) {
+		// If you have less water than demanded, you will instead sell the rest of your remaining water at the current price up to the demanded amount
+		if (saveDataObject.water < galsToSell) {
+			galsToSell = saveDataObject.water;
+		}
+        saveDataObject.water -= galsToSell;
+        saveDataObject.money += galsToSell * saveDataObject.waterPrice;
     }
     document.getElementById("water").innerHTML = Math.round(saveDataObject.water * 10) / 10;
     document.getElementById("demand").innerHTML = Math.round(saveDataObject.demand * 100) / 100;
@@ -280,7 +285,7 @@ function addHeadline(headline) {
             "</div>"
     );
 }
-//addHeadline("aaaaaaaaahhhhhhhhhhh"); example call
+//addHeadline("Headline here!"); example call
 
 // Main loop
 window.setInterval(function() {
