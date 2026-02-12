@@ -290,6 +290,7 @@ function addHeadline(headline) {
 //addHeadline("Headline here!"); example call
 
 // Main loop
+saveDataObject.gamePhase = 1;
 window.setInterval(function() {
 	// Phase 1 - Well Digging
 	if (saveDataObject.gamePhase == 1) {
@@ -318,10 +319,10 @@ window.setInterval(function() {
 	}
 	// Phase 2 - Building Infrastructure
 	else if (saveDataObject.gamePhase == 2) {
-		
+		// Do something
 	}
 	// Phase 3 - Overcome Obstacles
 	else if (saveDataObject.gamePhase == 3) {
-		
+		// Do something
 	}
 }, 1000);
