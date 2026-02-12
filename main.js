@@ -103,8 +103,18 @@ function loadData() {
             document.getElementById("waterPrice").innerHTML = Math.round(saveDataObject.waterPrice * 10) / 10;
             document.getElementById("demand").innerHTML = Math.round(saveDataObject.demand * 100) / 100;
             document.getElementById("moneyPerSecond").innerHTML = Math.round(saveDataObject.demand * saveDataObject.waterPrice * 100) / 100;
+            if (saveDataObject.gamePhase == 2) {
+                moveToPhase2();
+            }
         }
     }
+};
+
+// Test only function for moving to the next phase
+function moveToPhase2() {
+    saveDataObject.gamePhase = 2;
+    document.getElementById("phase1").style.display = 'none';
+    document.getElementById("phase2").style.display = 'block';
 };
 
 function digClick(number) {
@@ -291,14 +301,17 @@ function addHeadline(headline) {
 
 // Main loop
 saveDataObject.gamePhase = 1;
+document.getElementById("phase1").style.display = 'block';
+document.getElementById("phase2").style.display = 'none';
+document.getElementById("phase3").style.display = 'none';
 window.setInterval(function() {
 	// Phase 1 - Well Digging
 	if (saveDataObject.gamePhase == 1) {
 		// If population becomes high enough, transition to Phase 2.
 		// Well calculations are irrelevant past this point so we don't need to continue doing these in Phase 2.
 		if (saveDataObject.population > 10000) {
-			saveDataObject.gamePhase = 2;
-			alert("Your population has boomed. The wells begin to run dry under the abuse.");
+            alert("Your population has boomed. The wells begin to run dry under the abuse.");
+			moveToPhase2();
 		}
 	    // By default diggers dig 0.5 feet per second
 		digClick(saveDataObject.diggers * 0.5);
