@@ -46,7 +46,27 @@ var saveDataObject = {
     currentPopulationGrowthCounter : 0,
     increaseNaturalGrowthPrice : 5,
 	// The current phase of the game so you load into the correct menu
-	gamePhase : 1
+	gamePhase : 1,
+
+    // === Phase 2 ===
+    // Trackers
+    constructionProgress : 0,
+    currentProjectConstructionRequirement : 0,
+    constructionIntegrity : 0,
+    stateAppeal : 0,
+    farmerDefiance : 0,
+
+    // Currencies
+    phase2Land : 0,
+    phase2Money : 100,
+
+    // Workers
+    phase2Workers : 1,
+    unemployed : 1,
+    laborers : 0,
+    engineers : 0,
+    lawyers : 0,
+    enforcers : 0
 };
 
 // Do all initialization tasks like hiding locked elements
@@ -334,6 +354,89 @@ function updateProgressBar(barName, newValue) {
       elem.style.width = width + '%';
     }
   }
+};
+
+function hirePhase2Worker() {
+    var workerPrice = saveDataObject.phase2Workers * 100;
+    if (saveDataObject.phase2Money >= workerPrice) {
+        saveDataObject.phase2Workers += 1;
+        saveDataObject.unemployed += 1;
+        document.getElementById('workerTrackerText').innerHTML = saveDataObject.phase2Workers;
+        document.getElementById('p2workerTracker').innerHTML = saveDataObject.phase2Workers;
+        document.getElementById('unemployedTracker').innerHTML = saveDataObject.unemployed;
+    }
+};
+
+function addLaborer() {
+    if (saveDataObject.unemployed > 0) {
+        saveDataObject.unemployed -= 1;
+        saveDataObject.laborers += 1;
+        document.getElementById('unemployedTracker').innerHTML = saveDataObject.unemployed;
+        document.getElementById('laborerTracker').innerHTML = saveDataObject.laborers;
+    }
+};
+
+function removeLaborer() {
+    if (saveDataObject.laborers > 0) {
+        saveDataObject.laborers -= 1;
+        saveDataObject.unemployed += 1;
+        document.getElementById('unemployedTracker').innerHTML = saveDataObject.unemployed;
+        document.getElementById('laborerTracker').innerHTML = saveDataObject.laborers;
+    }
+};
+
+function addEngineer() {
+    if (saveDataObject.unemployed > 0) {
+        saveDataObject.unemployed -= 1;
+        saveDataObject.engineers += 1;
+        document.getElementById('unemployedTracker').innerHTML = saveDataObject.unemployed;
+        document.getElementById('engineerTracker').innerHTML = saveDataObject.engineers;
+    }
+};
+
+function removeEngineer() {
+    if (saveDataObject.engineers > 0) {
+        saveDataObject.engineers -= 1;
+        saveDataObject.unemployed += 1;
+        document.getElementById('unemployedTracker').innerHTML = saveDataObject.unemployed;
+        document.getElementById('engineerTracker').innerHTML = saveDataObject.engineers;
+    }
+};
+
+function addLawyer() {
+    if (saveDataObject.unemployed > 0) {
+        saveDataObject.unemployed -= 1;
+        saveDataObject.lawyers += 1;
+        document.getElementById('unemployedTracker').innerHTML = saveDataObject.unemployed;
+        document.getElementById('lawyerTracker').innerHTML = saveDataObject.lawyers;
+    }
+};
+
+function removeLawyer() {
+    if (saveDataObject.lawyers > 0) {
+        saveDataObject.lawyers -= 1;
+        saveDataObject.unemployed += 1;
+        document.getElementById('unemployedTracker').innerHTML = saveDataObject.unemployed;
+        document.getElementById('lawyerTracker').innerHTML = saveDataObject.lawyers;
+    }
+};
+
+function addEnforcer() {
+    if (saveDataObject.unemployed > 0) {
+        saveDataObject.unemployed -= 1;
+        saveDataObject.enforcers += 1;
+        document.getElementById('unemployedTracker').innerHTML = saveDataObject.unemployed;
+        document.getElementById('enforcerTracker').innerHTML = saveDataObject.enforcers;
+    }
+};
+
+function removeEnforcer() {
+    if (saveDataObject.enforcers > 0) {
+        saveDataObject.enforcers -= 1;
+        saveDataObject.unemployed += 1;
+        document.getElementById('unemployedTracker').innerHTML = saveDataObject.unemployed;
+        document.getElementById('enforcerTracker').innerHTML = saveDataObject.enforcers;
+    }
 };
 
 // Initialization on page load

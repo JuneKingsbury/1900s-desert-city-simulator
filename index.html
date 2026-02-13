@@ -18,7 +18,6 @@
         </div>
     </div>
     <div id="phase1">
-    
     <table>
         <thead>
         <tr>
@@ -107,14 +106,14 @@
                 <p>
                     <hr>
                     <h3>Increase Water Price</h3>
-                    <button onclick="increaseWaterPrice(0.1)">Increase by <b>$0.10</b></button>
-                    <button onclick="increaseWaterPrice(1)">Increase by <b>$1.00</b></button>
-                    <button onclick="increaseWaterPrice(10)">Increase by <b>$10.00</b></button>
+                    <button onclick="increaseWaterPrice(0.1)">↑ <b>$0.10</b></button>
+                    <button onclick="increaseWaterPrice(1)">↑ <b>$1.00</b></button>
+                    <button onclick="increaseWaterPrice(10)">↑ <b>$10.00</b></button>
                     <hr>
                     <h3>Decrease Water Price</h3>
-                    <button onclick="decreaseWaterPrice(0.1)">Decrease by <b>$0.10</b></button>
-                    <button onclick="decreaseWaterPrice(1)">Decrease by <b>$1.00</b></button>
-                    <button onclick="decreaseWaterPrice(10)">Decrease by <b>$10.00</b></button>
+                    <button onclick="decreaseWaterPrice(0.1)">↓ <b>$0.10</b></button>
+                    <button onclick="decreaseWaterPrice(1)">↓ <b>$1.00</b></button>
+                    <button onclick="decreaseWaterPrice(10)">↓ <b>$10.00</b></button>
                 </p>
                 </div>
             </td>
@@ -176,9 +175,9 @@
         </div>
         <div class="barContainer">
             <h2>Currencies</h2>
-            <p id="moneyTracker">Money: $0</p>
-            <p id="landTracker">Land: 0</p>
-            <p id="workerTracker">Workers: 1</p>
+            <p id="moneyTracker">Money: $<span id="moneyTrackerText">100</span></p>
+            <p id="landTracker">Land: <span id="landTrackerText">0</span></p>
+            <p id="workerTracker">Workers: <span id="workerTrackerText">1</span></p>
         </div>
         <table>
         <thead>
@@ -197,12 +196,12 @@
                     <p>Hire workers and add them to different jobs. These jobs include Laborers, Lawyers, Engineers, and Enforcers. Laborers increase construction progress, Engineers increase safety, Lawyers increase state appeal, and Enforcers quell farmer rebellion</p>
                 </div>
                 </div>
-                <p><button onclick="moveToPhase2()">Hire a worker for $100</button></p>
-                <p>Unemployed workers: 1/1</p>
-                <p><button onclick="moveToPhase2()">↓</button> 0 Laborers <button onclick="moveToPhase2()">↑</button></p>
-                <p><button onclick="moveToPhase2()">↓</button> 0 Engineers <button onclick="moveToPhase2()">↑</button></p>
-                <p><button onclick="moveToPhase2()">↓</button> 0 Lawyers <button onclick="moveToPhase2()">↑</button></p>
-                <p><button onclick="moveToPhase2()">↓</button> 0 Enforcers <button onclick="moveToPhase2()">↑</button></p>
+                <p><button onclick="hirePhase2Worker()">Hire a worker for $100</button></p>
+                <p>Unemployed workers: <span id="unemployedTracker">1</span>/<span id="p2workerTracker">1</span></p>
+                <p><button onclick="removeLaborer()">↓</button><button onclick="addLaborer()">↑</button> <span id="laborerTracker">0</span> Laborers</p>
+                <p><button onclick="removeEngineer()">↓</button><button onclick="addEngineer()">↑</button> <span id="engineerTracker">0</span> Engineers</p>
+                <p><button onclick="removeLawyer()">↓</button><button onclick="addLawyer()">↑</button> <span id="lawyerTracker">0</span> Lawyers</p>
+                <p><button onclick="removeEnforcer()">↓</button><button onclick="addEnforcer()">↑</button> <span id="enforcerTracker">0</span> Enforcers</p>
             </td>
             <td data-label="Farm Country">
                 <div class="dropdown">
