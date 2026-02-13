@@ -152,39 +152,82 @@
         </table>
     </div>
     <div id="phase2">
+        <div class="barContainer">
+        <h2>Construction Progress
+        <div class="largeBar">
+            <div id="constructionProgress" class="constructionProgress bar" style="width:0%">No project in progress</div>
+        </div></h2>
+        <h3>Construction Integrity
+        <div class="smallBar">
+            <div id="constructionSafety" class="constructionSafety bar" style="width:0%">No project in progress</div>
+        </div></h3>
+        </div>
+        <div class="barContainer">
+        <h2>State Appeal
+        <div class="largeBar">
+            <div id="stateAppeal" class="stateAppeal bar" style="width:0%">0% (0/1000)</div>
+        </div></h2>
+        </div>
+        <div class="barContainer">
+        <h2>Farmer Defiance
+        <div class="largeBar">
+            <div id="farmerDefiance" class="farmerDefiance bar" style="width:0%">0% (0/1000)</div>
+        </div></h2>
+        </div>
+        <div class="barContainer">
+            <h2>Currencies</h2>
+            <p id="moneyTracker">Money: $0</p>
+            <p id="landTracker">Land: 0</p>
+            <p id="workerTracker">Workers: 1</p>
+        </div>
+        <table>
+        <thead>
+        <tr>
+            <th id="Workers"><h2>Workers</h2></th>
+            <th id="Farm Country"><h2>Farm Country</h2></th>
+            <th id="Local Government"><h2>Local Government</h2></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td data-label="Workers">
+                <div class="dropdown">
+                <button onclick="toggleInfo(event, 'infoContent1')" class="dropbtn">More Info</button>
+                <div id="infoContent1" class="dropdown-content">
+                    <p>Hire workers and add them to different jobs. These jobs include Laborers, Lawyers, Engineers, and Enforcers. Laborers increase construction progress, Engineers increase safety, Lawyers increase state appeal, and Enforcers quell farmer rebellion</p>
+                </div>
+                </div>
+                <p><button onclick="moveToPhase2()">Hire a worker for $100</button></p>
+                <p>Unemployed workers: 1/1</p>
+                <p><button onclick="moveToPhase2()">↓</button> 0 Laborers <button onclick="moveToPhase2()">↑</button></p>
+                <p><button onclick="moveToPhase2()">↓</button> 0 Engineers <button onclick="moveToPhase2()">↑</button></p>
+                <p><button onclick="moveToPhase2()">↓</button> 0 Lawyers <button onclick="moveToPhase2()">↑</button></p>
+                <p><button onclick="moveToPhase2()">↓</button> 0 Enforcers <button onclick="moveToPhase2()">↑</button></p>
+            </td>
+            <td data-label="Farm Country">
+                <div class="dropdown">
+                <button onclick="toggleInfo(event, 'infoContent2')" class="dropbtn">More Info</button>
+                <div id="infoContent2" class="dropdown-content">
+                    <p>Win the trust of farmers and purchase their land for your infrastructure projects. As you take away their water they will begin to fight back.</p>
+                </div>
+                </div>
+            </td>
+            <td data-label="Local Government">
+                <div class="dropdown">
+                <button onclick="toggleInfo(event, 'infoContent3')" class="dropbtn">More Info</button>
+                <div id="infoContent3" class="dropdown-content">
+                    <p>Increase your appeal with the local government to earn funding for your infrastructure project. Introduce new construction projects here as well (costs Land).</p>
+                </div>
+                </div>
+            </td>
+        </tr>
+        </tbody>
+        </table>
         <p>Tracker bar 1 (construction progress. Phase ends once this is completed a few times, once for each major aqueduct and dam project)</p>
         <p>Tracker bar 1.5 (construction safety. Large chunk of construction progress will be removed if this is filled. Increases with low farmer appeal and decreased by hiring engineers)</p>
         <p>Tracker bar 2 (local government appeal. Impacts ability to get grants for hiring workers)</p>
         <p>Tracker bar 3 (farmer rebellion. Goes up as you construct more. Lower rebellion leads to cheaper land prices. If this bar beats construction safety we might see an attack on the construction progress and the deaths of workers)</p>
         <p>Currencies for this phase include Money for hiring workers, Land for starting construction projects, and two types of Appeal tracked in the bars above.</p>
-        <table>
-        <thead>
-        <tr>
-            <th id="workers"><h2>Workers</h2></th>
-            <th id="farm_country"><h2>Farm Country</h2></th>
-            <th id="local_gov"><h2>Local Government</h2></th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr>
-            <td data-label="workers">
-                <p>
-                    Hire workers and add them to different jobs. These jobs include Laborers, Lawyers, Engineers, and Enforcers. Laborers increase construction progress, Engineers increase safety, Lawyers increase state appeal, and Enforcers quell farmer rebellion
-                </p>
-            </td>
-            <td data-label="farm_country">
-                <p>
-                    Win the trust of farmers and purchase their land for your infrastructure projects. As you take away their water they will begin to fight back.
-                </p>
-            </td>
-            <td data-label="local_gov">
-                <p>
-                    Increase your appeal with the local government to earn funding for your infrastructure project. Introduce new construction projects here as well (costs Land).
-                </p>
-            </td>
-        </tr>
-        </tbody>
-        </table>
     </div>
     <div id="phase3">
         <p>Woohoo phase 3! Now the farmers have no water and this part is just sad.</p>

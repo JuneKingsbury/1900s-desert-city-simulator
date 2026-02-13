@@ -169,3 +169,80 @@ button {
 @keyframes a {
   to {background-position:0 -200%}
 }
+
+.bar, .smallBar, .largeBar {
+  border-radius:8px;
+}
+
+.barContainer {
+  background-color: rgba(255, 255, 255, 0.6);
+  color: black;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 1px;
+  border-radius:8px;
+  white-space: nowrap;
+}
+
+.smallBar {
+  font-size:12px;
+  background-color: lightgray;
+}
+
+.largeBar {
+  font-size:18px;
+  background-color: lightgray;
+}
+
+.constructionProgress {
+  background-color: green;
+  color: white;
+  text-align: center;
+}
+
+.constructionSafety {
+  background-color: blue;
+  color: white;
+  text-align: center;
+}
+
+.stateAppeal {
+  background-color: purple;
+  color: white;
+  text-align: center;
+}
+
+.farmerDefiance {
+  background-color: red;
+  color: white;
+  text-align: center;
+}
+
+.dropdown {
+  position: relative; /* Essential for positioning the content below the button */
+  display: inline-block;
+}
+
+.dropbtn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 12px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+.dropdown-content {
+  display: none; /* Hidden by default */
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  padding: 12px;
+  z-index: 1;
+}
+
+/* Class to show the content when JavaScript toggles it */
+.show {
+  display: block;
+}

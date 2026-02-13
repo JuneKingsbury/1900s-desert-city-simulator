@@ -299,11 +299,49 @@ function addHeadline(headline) {
 }
 //addHeadline("Headline here!"); example call
 
-// Main loop
+function toggleInfo(event, contentName) {
+  // Prevents the default action if you were using an anchor tag
+  if (event) {
+    event.preventDefault(); 
+  }
+  
+  // Toggles the 'show' class on the content div
+  document.getElementById(contentName).classList.toggle("show");
+}
+
+// Close the dropdown if the user clicks outside of it
+window.onclick = function(event) {
+  if (!event.target.matches('.dropbtn')) {
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    for (var i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
+
+function updateProgressBar(barName, newValue) {
+  var elem = document.getElementById(barName);
+  var width = 1;
+  var id = setInterval(frame, 10);
+  function frame() {
+    if (width >= newValue) {
+      clearInterval(id);
+    } else {
+      width++;
+      elem.style.width = width + '%';
+    }
+  }
+};
+
+// Initialization on page load
 saveDataObject.gamePhase = 1;
 document.getElementById("phase1").style.display = 'block';
 document.getElementById("phase2").style.display = 'none';
 document.getElementById("phase3").style.display = 'none';
+// Main loop
 window.setInterval(function() {
 	// Phase 1 - Well Digging
 	if (saveDataObject.gamePhase == 1) {
