@@ -371,6 +371,7 @@ window.setInterval(function() {
 	// Phase 2 - Building Infrastructure
 	else if (saveDataObject.gamePhase == 2) {
 		// Do something
+        document.body.style.backgroundImage="url(background2.jpg)"
 	}
 	// Phase 3 - Overcome Obstacles
 	else if (saveDataObject.gamePhase == 3) {
